@@ -73,6 +73,12 @@ public class AplikasiKonversiSuhu extends javax.swing.JFrame {
 
         combo_asal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Asal", "Celcius", "Fahrenheit", "Reamur", "Kelvin" }));
 
+        txt_suhu.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_suhuKeyTyped(evt);
+            }
+        });
+
         buttonGroup1.add(radio_celcius);
         radio_celcius.setText("Celcius");
 
@@ -249,6 +255,14 @@ public class AplikasiKonversiSuhu extends javax.swing.JFrame {
 }
 
     }//GEN-LAST:event_btn_konversiActionPerformed
+
+    private void txt_suhuKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_suhuKeyTyped
+        // TODO add your handling code here:
+        char input = evt.getKeyChar();
+        if (!Character.isDigit(input)) {
+            evt.consume();  // Mencegah input selain angka
+        }
+    }//GEN-LAST:event_txt_suhuKeyTyped
 
     /**
      * @param args the command line arguments
