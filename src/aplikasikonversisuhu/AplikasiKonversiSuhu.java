@@ -180,64 +180,74 @@ public class AplikasiKonversiSuhu extends javax.swing.JFrame {
     private void btn_konversiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_konversiActionPerformed
         // TODO add your handling code here:
         try {
-        // Get the input temperature from the text field
-        double inputTemp = Double.parseDouble(txt_suhu.getText());
-        
-        // Get the selected original unit from the combo box
-        String originalUnit = combo_asal.getSelectedItem().toString();
-        
-        // Determine the target unit based on the selected radio button
-        String targetUnit = "";
-        if (radio_Celcius.isSelected()) {
-            targetUnit = "Celsius";
-        } else if (radio_Fahrenheit.isSelected()) {
-            targetUnit = "Fahrenheit";
-        } else if (radio_Kelvin.isSelected()) {
-            targetUnit = "Kelvin";
-        } else if (radio_Reamur.isSelected()) {
-            targetUnit = "Reaumur";
-        }
-        
-        double result = 0.0;
-        
-        // Perform conversion based on original and target units
-        if (originalUnit.equals("Celsius")) {
-            switch (targetUnit) {
-                case "Fahrenheit": result = (inputTemp * 9/5) + 32; break;
-                case "Kelvin": result = inputTemp + 273.15; break;
-                case "Reaumur": result = inputTemp * 4/5; break;
-                case "Celsius": result = inputTemp; break;
-            }
-        } else if (originalUnit.equals("Fahrenheit")) {
-            switch (targetUnit) {
-                case "Celsius": result = (inputTemp - 32) * 5/9; break;
-                case "Kelvin": result = (inputTemp - 32) * 5/9 + 273.15; break;
-                case "Reaumur": result = (inputTemp - 32) * 4/9; break;
-                case "Fahrenheit": result = inputTemp; break;
-            }
-        } else if (originalUnit.equals("Kelvin")) {
-            switch (targetUnit) {
-                case "Celsius": result = inputTemp - 273.15; break;
-                case "Fahrenheit": result = (inputTemp - 273.15) * 9/5 + 32; break;
-                case "Reaumur": result = (inputTemp - 273.15) * 4/5; break;
-                case "Kelvin": result = inputTemp; break;
-            }
-        } else if (originalUnit.equals("Reaumur")) {
-            switch (targetUnit) {
-                case "Celsius": result = inputTemp * 5/4; break;
-                case "Fahrenheit": result = (inputTemp * 9/4) + 32; break;
-                case "Kelvin": result = inputTemp * 5/4 + 273.15; break;
-                case "Reaumur": result = inputTemp; break;
-            }
-        }
-        
-        // Display the result in the result text field
-        txt_hasil.setText(String.format("%.2f", result));
-        
-    } catch (NumberFormatException e) {
-        // Display an error message if the input is invalid
-        txt_hasil.setText("Invalid input");
+    // Get the input temperature from the text field
+    double suhu = Double.parseDouble(txt_suhu.getText().trim());
+
+    // Check if the combo box has a selected item
+    if (combo_asal.getSelectedItem() == null) {
+        txt_hasil.setText("Silakan pilih satuan asal.");
+        return;
     }
+    
+    // Get the selected original unit from the combo box
+    String asal = combo_asal.getSelectedItem().toString();
+
+    // Determine the target unit based on the selected radio button
+    String tujuan = "";
+    if (radio_celcius.isSelected()) {
+        tujuan = "Celsius";
+    } else if (radio_fahrenheit.isSelected()) {
+        tujuan = "Fahrenheit";
+    } else if (radio_kelvin.isSelected()) {
+        tujuan = "Kelvin";
+    } else if (radio_reamur.isSelected()) {
+        tujuan = "Reaumur";
+    } else {
+        txt_hasil.setText("Silakan pilih satuan tujuan.");
+        return;
+    }
+
+    double hasil = 0.0;
+
+    // Perform conversion based on the original and target units
+    if (asal.equals("Celcius")) {
+        switch (tujuan) {
+            case "Fahrenheit": hasil = (suhu * 9/5) + 32; break;
+            case "Kelvin": hasil = suhu + 273.15; break;
+            case "Reaumur": hasil = suhu * 4/5; break;
+            case "Celsius": hasil = suhu; break;
+        }
+    } else if (asal.equals("Fahrenheit")) {
+        switch (tujuan) {
+            case "Celsius": hasil = (suhu - 32) * 5/9; break;
+            case "Kelvin": hasil = (suhu - 32) * 5/9 + 273.15; break;
+            case "Reaumur": hasil = (suhu - 32) * 4/9; break;
+            case "Fahrenheit": hasil = suhu; break;
+        }
+    } else if (asal.equals("Kelvin")) {
+        switch (tujuan) {
+            case "Celsius": hasil = suhu - 273.15; break;
+            case "Fahrenheit": hasil = (suhu - 273.15) * 9/5 + 32; break;
+            case "Reaumur": hasil = (suhu - 273.15) * 4/5; break;
+            case "Kelvin": hasil = suhu; break;
+        }
+    } else if (asal.equals("Reamur")) {
+        switch (tujuan) {
+            case "Celsius": hasil = suhu * 5/4; break;
+            case "Fahrenheit": hasil = (suhu * 9/4) + 32; break;
+            case "Kelvin": hasil = suhu * 5/4 + 273.15; break;
+            case "Reaumur": hasil = suhu; break;
+        }
+    }
+
+    // Display the result in the result text field
+    txt_hasil.setText(String.format("%.2f", hasil));
+    
+} catch (NumberFormatException e) {
+    // Display an error message if the input is invalid
+    txt_hasil.setText("Inputan tidak valid");
+}
+
     }//GEN-LAST:event_btn_konversiActionPerformed
 
     /**
