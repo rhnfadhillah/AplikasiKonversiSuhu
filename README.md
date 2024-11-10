@@ -1,7 +1,5 @@
 # Aplikasi Konversi Suhu   
 Tugas 2 - Muhammad Raihan Fadhillah 2210010404
-## Deskripsi
-Aplikasi Konversi Suhu adalah program berbasis Java yang memungkinkan pengguna untuk mengonversi suhu dari satu satuan ke satuan lainnya, seperti Celsius, Fahrenheit, Kelvin, dan Reaumur. Aplikasi ini memiliki antarmuka pengguna grafis (GUI) yang sederhana dan intuitif, memudahkan pengguna dalam melakukan konversi suhu.
 
 ## Daftar Isi
 - [Deskripsi](#deskripsi)
@@ -12,6 +10,9 @@ Aplikasi Konversi Suhu adalah program berbasis Java yang memungkinkan pengguna u
 - [Screenshots](#screenshots)
 - [Contoh Penggunaan](#contoh-penggunaan)
 - [Pembuat](#pembuat)
+
+## Deskripsi
+Aplikasi Konversi Suhu adalah program berbasis Java yang memungkinkan pengguna untuk mengonversi suhu dari satu satuan ke satuan lainnya, seperti Celsius, Fahrenheit, Kelvin, dan Reaumur. Aplikasi ini memiliki antarmuka pengguna grafis (GUI) yang sederhana dan intuitif, memudahkan pengguna dalam melakukan konversi suhu.
 
 ## Prerequisites
 Sebelum menjalankan aplikasi ini, pastikan Anda telah menginstal:
