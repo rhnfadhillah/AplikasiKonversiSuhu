@@ -109,10 +109,10 @@ public class AplikasiKonversiSuhu extends javax.swing.JFrame {
         // Display the result in the result text field
         txt_hasil.setText(String.format("%.2f", hasil));
 
-    } catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
         // Display an error message if the input is invalid
         txt_hasil.setText("Inputan tidak valid");
-    }
+        }
     }
 
     /**
